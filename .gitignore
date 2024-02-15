@@ -48,3 +48,4 @@ package.json
 /share/
 /src/
 odoo.log
+*.log
