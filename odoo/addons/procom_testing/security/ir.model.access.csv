@@ -1,0 +1,27 @@
+<odoo>
+
+    <record id="access_technician_hours" model="ir.model.access">
+        <field name="name">Technician Hours Access</field>
+        <field name="model_id" ref="work_hours_ids"/>
+        <field name="group_id" ref="base.technician"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+
+    <menuitem id="menu_export_technician_hours" name="Export Technician Hours" parent="your_parent_menu_id" sequence="10" groups="your.group_access_rights"/>
+
+    <!-- Record Rules -->
+    <record id="record_rule_technician_hours" model="ir.rule">
+        <field name="name">Technician Hours Record Rule</field>
+        <field name="model_id" ref="model_your_model_name"/>
+        <field name="domain_force">[('user_id','=',user.id)]</field> <!-- Define your domain filter -->
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+</odoo>
